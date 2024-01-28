@@ -1,6 +1,6 @@
-function Actions.RemoveBackgroundTag(characterId)
-  if Conditions.IsBackgroundTagLoaded(characterId) and
-    not Conditions.IsInBackgroundPlayersDB(characterId, _) then
-    Osi.DB_GLO_Backgrounds_Tags:Delete(characterId)
+function Actions.RemovebackgroundTagId(backgroundTagId)
+  if Conditions.IsbackgroundTagIdLoaded(backgroundTagId) and
+    not Conditions.IsInBackgroundPlayersDB(_, backgroundTagId) then
+    Osi.DB_GLO_Backgrounds_Tags:Delete(backgroundTagId)
   end
 end

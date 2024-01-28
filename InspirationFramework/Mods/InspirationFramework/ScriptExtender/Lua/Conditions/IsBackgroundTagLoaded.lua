@@ -1,3 +1,3 @@
-function Conditions.IsBackgroundTagLoaded(backgroundTag)
-  return Utils.TruthDB(Osi.DB_GLO_Backgrounds_Tags:Get(backgroundTag))
+function Conditions.IsbackgroundTagIdLoaded(backgroundTagId)
+  return Utils.TruthDB(Osi.DB_GLO_Backgrounds_Tags:Get(backgroundTagId))
 end

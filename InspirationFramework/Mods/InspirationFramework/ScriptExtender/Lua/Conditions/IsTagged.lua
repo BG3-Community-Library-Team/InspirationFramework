@@ -1,3 +1,3 @@
-function Conditions.IsTagged(characterId, backgroundTag)
-  return Osi.IsTagged(characterId, backgroundTag) == 1
+function Conditions.IsTagged(characterId, backgroundTagId)
+  return Osi.IsTagged(characterId, backgroundTagId) == 1
 end

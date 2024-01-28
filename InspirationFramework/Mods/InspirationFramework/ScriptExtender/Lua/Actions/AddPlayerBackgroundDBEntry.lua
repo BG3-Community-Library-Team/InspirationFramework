@@ -1,9 +1,9 @@
-function Actions.AddPlayerBackgroundDBEntry(characterId, backgroundTag)
+function Actions.AddPlayerBackgroundDBEntry(characterId, backgroundTagId)
   if Conditions.IsInPlayersDB(characterId) and
-    Conditions.BackgroundHasGoals(backgroundTag) and (
-      Conditions.IsTagged(characterId, backgroundTag) or
-      not Conditions.IsInBackgroundPlayersDB(characterId, backgroundTag)
+    Conditions.BackgroundHasGoals(backgroundTagId) and (
+      Conditions.IsTagged(characterId, backgroundTagId) or
+      not Conditions.IsInBackgroundPlayersDB(characterId, backgroundTagId)
     ) then
-    Osi.DB_GLO_Backgrounds_Players(characterId, backgroundTag)
+    Osi.DB_GLO_Backgrounds_Players(characterId, backgroundTagId)
   end
 end
