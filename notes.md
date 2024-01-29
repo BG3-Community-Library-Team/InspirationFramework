@@ -59,6 +59,7 @@ correctly as well. Caveat: The goal isn't added to `DB_GLO_Backgrounds_Completed
 in `DB_GLO_Backgrounds_Goal`, but this isn't the case. However, it may be important to call the relevant Procedure rather than the Osi function directly. That said, the Goal is considered complete, and
 won't be re-completable for the user.
 
-YES. Calling `PROC_GLO_Backgrounds_CompleteGoal` is what's needed to get things working perfectly. Time to document, then implement the API. Maybe a Config loader eventually too.
+YES. Calling `PROC_GLO_Backgrounds_CompleteGoal` is what's needed to get things working perfectly. Time to document, then implement the API. Maybe a Config loader eventually too. May need to add handling
+for Chaining vanilla Goal Strings.
 
 Important to also note that there's handling to prevent Goals from being completed in `TUT_Avernus_C`, so no tutorial goals unless I make a listener that ignores that 😂
