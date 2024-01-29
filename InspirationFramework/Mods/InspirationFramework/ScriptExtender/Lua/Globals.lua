@@ -5,6 +5,7 @@ IF.modTableKey = "InspirationFramework"
 IF.modPrefix = "IF"
 IF.modVersion = Ext.Mod.GetMod(IF.UUID).Info.ModVersion
 
+Mods.IF = Mods.InspirationFramework
 Globals.InfoOverride = false
 
 local clImports = {}

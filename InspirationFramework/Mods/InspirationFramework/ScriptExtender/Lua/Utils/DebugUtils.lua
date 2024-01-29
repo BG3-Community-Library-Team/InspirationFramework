@@ -97,3 +97,20 @@ function Utils.HandleBackgroundsBlocked(action, goalString)
   end
   return nil
 end
+
+--- Add, Remove, or Retrieve from DB_GLO_Backgrounds_ChainAfterGoal
+--- @param action string Action to perform. `Get/Retrieve`, `Delete/Remove`, or `Add/Insert`. Defaults to Get.
+--- @param goalStringA string string ID of goal (not UUID).
+--- @param goalStringB string string ID of another goal (not UUID).
+---@return table|nil
+function Utils.HandleBackgroundsChainAfterGoal(action, goalStringA, goalStringB)
+  action = action or "Get"
+  if action == "Get" or action == "Retrieve" then
+    return Osi.DB_GLO_Backgrounds_ChainAfterGoal:Get(goalStringA, goalStringB)
+  elseif action == "Delete" or action == "Remove" then
+    return Osi.DB_GLO_Backgrounds_ChainAfterGoal:Delete(goalStringA, goalStringB)
+  elseif action == "Add" or action == "Insert" then
+    return Osi.DB_GLO_Backgrounds_ChainAfterGoal(goalStringA, goalStringB)
+  end
+  return nil
+end

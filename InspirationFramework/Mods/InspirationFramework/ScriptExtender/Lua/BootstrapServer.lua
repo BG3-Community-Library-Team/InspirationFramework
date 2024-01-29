@@ -1,5 +1,6 @@
 _D("Inspiration Framework Loaded")
 
+Ext.Require("Globals.lua")
 Ext.Require("Utils/DebugUtils.lua")
 
 Ext.Osiris.RegisterListener("PROC_GLO_Backgrounds_CompleteGoal", 2, "after", function (character, goal)
