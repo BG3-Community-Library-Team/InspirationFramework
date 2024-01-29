@@ -39,3 +39,8 @@ It isn't checking for the first instance of a goal being present, compares the b
 All the Inspiration completion procedures leads back to Osi.AddBackgroundGoal().  Unfortunately it's a void function, too. Best way might be to register a listener for AddBackgroundGoal
  and then checking if the relevant character's Inspiration Points have changed, then just call Osi.GiveInspirationPoints() if the relevant goal is either not vanilla, or a vanilla but
  granted to someone with a different background tag 🤔
+
+Hrm interesting, don't think this is the hidden blocker, though I'm not watching it for changes so it could be, but a custom background with two tags granted: the Acolyte background tag
+and its own custom tag, only gets the Acolyte tag added into DB_GLO_Backgrounds_Tags
+
+To add to Osi.DB_GLO_Backgrounds_Tags, you have to first make sure the correct value is present in Osi.DB_GLO_Backgrounds_Players.
