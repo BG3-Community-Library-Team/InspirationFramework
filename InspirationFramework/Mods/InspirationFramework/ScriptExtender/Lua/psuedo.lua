@@ -1,3 +1,6 @@
+-- This function adds the inspiration event, completing the goal, IF you have the correct background.
+-- Osi.AddBackgroundGoal(character, goal, categoryId)
+
 --[[
 IF
 TagSet((CHARACTER)_Var1, (TAG)_Var2)
@@ -131,7 +134,9 @@ PROC_GLO_Backgrounds_GivePoint(_Var1, _Var4);
 
 -- Need to determine how to get `backgroundTagId` and `goalId`
 Ext.Osiris.RegisterListener("PROC_GLO_Backgrounds_RewardPlayer", 2, "after", function (character, goalString) 
-  if not Osi.DB_GLO_Backgrounds_Completed:Get(character, goalString) and Osi.DB_GLO_Backgrounds_Goal:Get(backgroundTagId, goalString, goalId, _) and Osi.DB_GLO_Backgrounds_Players(character, backgroundTagId) then
+  local backgroundTagId = Osi.DB_GLO_Backgrounds_Players:Get(character, _)[1][2] -- [1] = SubArray, [2] = Background Tag
+  if not Osi.DB_GLO_Backgrounds_Completed:Get(character, goalString) and Osi.DB_GLO_Backgrounds_Goal:Get(backgroundTagId, goalString, _, _) then
+    local goalId = Osi.DB_GLO_Backgrounds_Goal:Get(backgroundTagId, goalString, _, _)[1][3]
     Osi.DB_GLO_Backgrounds_Completed(character, goalString)
     Osi.PROC_GLO_Backgrounds_GivePoint(character, goalId)
   end
@@ -169,8 +174,7 @@ PROC_GLO_Backgrounds_RewardPlayer(_Var3, _Var2);
 ]]
 
 Ext.Osiris.RegisterListener("PROC_GLO_Backgrounds_ShareGoalRewarding", 2, "after", function (character, goalId)
-  local categoryId = Osi.DB_GLO_Backgrounds_Category(Osi.GetRegion, _)[1][2] -- [1] is the sub-array, [2] is the Act
-  Osi.AddBackgroundGoal(character, goalId, categoryId)
+
 end)
 
 --[[
