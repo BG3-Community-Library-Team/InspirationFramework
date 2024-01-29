@@ -47,3 +47,6 @@ I don't think this is the hidden blocker, though I'm not watching it for changes
 only gets the Acolyte tag added into `DB_GLO_Backgrounds_Tags`
 
 To add to `Osi.DB_GLO_Backgrounds_Tags`, you have to first make sure the correct value is present in `Osi.DB_GLO_Backgrounds_Players`.
+
+Having the Background Tag registered and present in both `DB_GLO_Backgrounds_Tags` and `DB_GLO_Backgrounds_Players` isn't enough to get `Osi.AddBackgroundGoal()` to work, even when granting a vanilla
+background tag that doesn't actually match the player's background.
