@@ -25,16 +25,12 @@ end)
 
 Ext.Osiris.RegisterListener("PROC_GLO_Backgrounds_GivePoint", 2, "after", function (character, goalId)
   _D("PROC_GLO_Backgrounds_GivePoint proc'd")
-  local categoryId = Osi.DB_GLO_Backgrounds_Category(Osi.GetRegion, _)[1][2] -- [1] is the sub-array, [2] is the Act
+  local categoryId = Osi.DB_GLO_Backgrounds_Category:Get(Osi.GetRegion(character), _)[1][2] -- [1] is the sub-array, [2] is the Act
   _D("Calling Osi.AddBackgroundGoal if we're in the right region.")
 end)
 
 Ext.Osiris.RegisterListener("PROC_GLO_Backgrounds_ShareGoalRewarding", 2, "after", function (character, goalId)
   _D("PROC_GLO_Backgrounds_ShareGoalRewarding proc'd")
-end)
-
-Ext.Osiris.RegisterListener("AddBackgroundGoal", 3, "after", function (character, goalId, categoryId)
-  _D("AddBackgroundGoal fired")
 end)
 
 Ext.Osiris.RegisterListener("DB_GLO_Backgrounds_Players", 2, "after", function (characterId, backgroundTag)
@@ -46,3 +42,6 @@ Ext.Osiris.RegisterListener("DB_GLO_Backgrounds_Players", 2, "afterDelete", func
   _D(characterId .. " with background tag " .. backgroundTag .. " removed from DB_GLO_Backgrounds_Players")
 end)
 
+Ext.Osiris.RegisterListener("AddBackgroundGoal", 3, "after", function (character, goalId, categoryId)
+  _D("AddBackgroundGoal fired")
+end)
