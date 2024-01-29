@@ -1,4 +1,4 @@
---- comment
+--- Loop through DB_Players and register the background tag for any players that aren't already registered
 function Utils.RegisterBackgroundTag()
   for _, playerID in pairs(Osi.DB_Players[1]) do
     local player = Ext.Entity.Get(playerID)
@@ -11,10 +11,20 @@ function Utils.RegisterBackgroundTag()
   end
 end
 
-function Utils.RegisterGoal()
+function Utils.RegisterBackgroundGoal()
 
 end
+-- Osi.DB_GLO_Backgrounds_Goal:Get(backgroundTagId, goalString, goalId)
 
-function Utils.ParseCharacterBackgrounds()
-
+--- Retrieve the Background Tag from a given Character
+--- @param characterId string ID of character. Defaults to Host Character.
+--- @param full boolean Boolean to determine if tag should be prefixed with Tag Name field.
+---@return string
+function Utils.GetBackgroundTag(characterId, full)
+  characterId = characterId or Osi.GetHostCharacter()
+  local tag = Ext.Entity.Get(characterId).BackgroundTag.Tags[1]
+  if full then
+    tag = Ext.StaticData.Get(tag, "Tag").Name .. "_" .. tag
+  end
+  return tag
 end
