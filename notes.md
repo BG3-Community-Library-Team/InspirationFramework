@@ -46,7 +46,16 @@ granted to someone with a different background tag 🤔
 I don't think this is the hidden blocker, though I'm not watching it for changes so it could be, but a custom background with two tags granted: the Acolyte background tag and its own custom tag,
 only gets the Acolyte tag added into `DB_GLO_Backgrounds_Tags`
 
-To add to `Osi.DB_GLO_Backgrounds_Tags`, you have to first make sure the correct value is present in `Osi.DB_GLO_Backgrounds_Players`.
+To add to `Osi.DB_GLO_Backgrounds_Tags`, you have to first make sure the correct value is present in `Osi.DB_GLO_Backgrounds_Players`. Inserting into `DB_GLO_Backgrounds_Players` auto-inserts into `DB_GLO_Backgrounds_Tags`.
 
 Having the Background Tag registered and present in both `DB_GLO_Backgrounds_Tags` and `DB_GLO_Backgrounds_Players` isn't enough to get `Osi.AddBackgroundGoal()` to work, even when granting a vanilla
 background tag that doesn't actually match the player's background.
+
+BUT.
+
+Given a player has a custom background, the custom background has its own Background Tag and Background Goals, add the Background Tag ID to `DB_GLO_Backgrounds_Players` for the given character, which
+auto-inserts the tag into `DB_GLO_Backgrounds_Tags`. _Then_ call `Osi.AddBackgroundGoal(character, goalUUID, categoryId)`. This succeeds. You get the inspiration point, the inspiration event displays
+correctly as well. Caveat: The goal isn't added to `DB_GLO_Backgrounds_Completed` or `DB_GLO_Backgrounds_Blocked` as one would expect - likely because the custom goal isn't present in 
+`DB_GLO_Backgrounds_Goal`.
+
+Important to also note that there's handling to prevent Goals from being completed in `TUT_Avernus_C`, so no tutorial goals unless I make a listener that ignores that 😂
