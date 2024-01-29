@@ -55,7 +55,10 @@ BUT.
 
 Given a player has a custom background, the custom background has its own Background Tag and Background Goals, add the Background Tag ID to `DB_GLO_Backgrounds_Players` for the given character, which
 auto-inserts the tag into `DB_GLO_Backgrounds_Tags`. _Then_ call `Osi.AddBackgroundGoal(character, goalUUID, categoryId)`. This succeeds. You get the inspiration point, the inspiration event displays
-correctly as well. Caveat: The goal isn't added to `DB_GLO_Backgrounds_Completed` or `DB_GLO_Backgrounds_Blocked` as one would expect - likely because the custom goal isn't present in 
-`DB_GLO_Backgrounds_Goal`.
+correctly as well. Caveat: The goal isn't added to `DB_GLO_Backgrounds_Completed` or `DB_GLO_Backgrounds_Blocked` as one would expect - at first glance, it could because the custom goal isn't present
+in `DB_GLO_Backgrounds_Goal`, but this isn't the case. However, it may be important to call the relevant Procedure rather than the Osi function directly. That said, the Goal is considered complete, and
+won't be re-completable for the user.
+
+YES. Calling `PROC_GLO_Backgrounds_CompleteGoal` is what's needed to get things working perfectly. Time to document, then implement the API. Maybe a Config loader eventually too.
 
 Important to also note that there's handling to prevent Goals from being completed in `TUT_Avernus_C`, so no tutorial goals unless I make a listener that ignores that 😂
