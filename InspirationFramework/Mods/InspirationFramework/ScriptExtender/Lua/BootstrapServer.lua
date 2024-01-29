@@ -1,5 +1,7 @@
 _D("Inspiration Framework Loaded")
 
+Ext.Require("Utils/DebugUtils.lua")
+
 Ext.Osiris.RegisterListener("PROC_GLO_Backgrounds_CompleteGoal", 2, "after", function (character, goal)
   _D("PROC_GLO_Backgrounds_CompleteGoal proc'd")
 
@@ -33,3 +35,13 @@ end)
 Ext.Osiris.RegisterListener("AddBackgroundGoal", 3, "after", function (character, goalId, categoryId)
   _D("AddBackgroundGoal fired")
 end)
+
+Ext.Osiris.RegisterListener("DB_GLO_Backgrounds_Players", 2, "after", function (characterId, backgroundTag)
+  _D("DB_GLO_Backgrounds_Players change detected...")
+  _D(Osi.DB_GLO_Backgrounds_Players:Get(characterId, backgroundTag))
+end)
+
+Ext.Osiris.RegisterListener("DB_GLO_Backgrounds_Players", 2, "afterDelete", function (characterId, backgroundTag)
+  _D(characterId .. " with background tag " .. backgroundTag .. " removed from DB_GLO_Backgrounds_Players")
+end)
+
