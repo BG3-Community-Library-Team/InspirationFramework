@@ -31,3 +31,16 @@ Globals.BackgroundTags = {
   Outlander = "OUTLANDER_d81df6f9-9f6e-4146-841a-9f285e6ee879",
   Urchin = "URCHIN_2faee476-d77b-42a7-a4c6-2b9ac934673c"
 }
+
+Globals.VanillaBackgrounds = {
+
+}
+
+Globals.OperationTypes = {
+  Get = "Get",
+  Retrieve = "Get",
+  Add = "Add",
+  Insert = "Add",
+  Delete = "Delete",
+  Remove = "Delete"
+}

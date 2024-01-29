@@ -26,6 +26,9 @@ function Utils.HandleBackgroundsPlayers(action, characterId, backgroundTagId)
     return Osi.DB_GLO_Backgrounds_Players:Delete(characterId, backgroundTagId)
   elseif action == "Add" or action == "Insert" then
     return Osi.DB_GLO_Backgrounds_Players(characterId, backgroundTagId)
+  else
+    -- Invalid Action
+    CLUtils.Error("")
   end
   return nil
 end
