@@ -1,4 +1,4 @@
---- Loop through ` and register the background tag for any players that aren't already registered
+--- Loop through `Osi.DB_Players` and register the background tag for any players that aren't already registered
 function Actions.RegisterBackgroundTag()
   CLUtils.Info("Entering Actions.RegisterBackgroundTag", Globals.InfoOverride)
   if Utils.TruthDB(Osi.DB_Players:Get(_)) then
