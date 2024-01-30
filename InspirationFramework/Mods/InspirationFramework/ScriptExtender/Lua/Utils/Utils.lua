@@ -1,5 +1,5 @@
 --- This looks funky so our DB checks are more readable
----@param array table DB Table
+---@param array table|nil DB Table
 ---@return boolean
 function Utils.TruthDB(array)
   CLUtils.Info("Entering Utils.TruthDB", Globals.InfoOverride)

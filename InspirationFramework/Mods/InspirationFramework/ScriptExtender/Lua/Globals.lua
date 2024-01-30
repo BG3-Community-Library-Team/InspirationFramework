@@ -6,7 +6,7 @@ IF.modPrefix = "IF"
 IF.modVersion = Ext.Mod.GetMod(IF.UUID).Info.ModVersion
 
 Mods.IF = Mods.InspirationFramework
-Globals.InfoOverride = true
+Globals.InfoOverride = false
 
 local clImports = {}
 clImports[1] = "Globals"
@@ -15,3 +15,4 @@ clImports[2] = "Utils"
 CLGlobals, CLUtils = Mods.CommunityLibrary.Import(clImports)
 
 Globals.ImportedBackgroundGoals = {}
+
