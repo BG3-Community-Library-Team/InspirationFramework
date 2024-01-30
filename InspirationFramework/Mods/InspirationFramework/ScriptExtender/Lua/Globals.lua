@@ -10,12 +10,9 @@ Globals.InfoOverride = false
 
 local clImports = {}
 clImports[1] = "Globals"
-clImports[2] = "Strings"
-clImports[3] = "DictUtils"
-clImports[4] = "Utils"
-clImports[5] = "Validators"
+clImports[2] = "Utils"
 
-CLGlobals, CLStrings, CLDictUtils, CLUtils, CLValidators = Mods.CommunityLibrary.Import(clImports)
+CLGlobals, CLUtils = Mods.CommunityLibrary.Import(clImports)
 
 Globals.BackgroundTags = {
   HauntedOne = "HAUNTED_ONE_ce00b3b6-238e-4524-851b-3d1f2d2b1189",

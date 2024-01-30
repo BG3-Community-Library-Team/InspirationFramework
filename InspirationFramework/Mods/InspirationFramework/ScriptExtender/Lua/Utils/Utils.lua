@@ -1,5 +1,16 @@
-function Utils.MarkGoalComplete(characterId, goalString)
-  Osi.PROC_GLO_Backgrounds_CompleteGoal(characterId, goalString)
+--- This looks funky so our DB checks are more readable
+---@param array table DB Table
+---@return boolean
+function Utils.TruthDB(array)
+  return not not next(array)
+end
+
+--- Suffix goal string with Mod's Meta Folder value
+--- @param modGuid string UUID of mod
+--- @param goalString string Goal Name
+---@return string
+function Utils.PrepGoalString(modGuid, goalString)
+  return goalString .. "_" .. Ext.Mod.GetMod(modGuid).Info.Directory
 end
 
 --- Retrieve the Background Tag from a given Character
@@ -21,8 +32,4 @@ function Utils.GetBackgroundTag(id, idType, full)
     tag = Ext.StaticData.Get(tag, "Tag").Name .. "_" .. tag
   end
   return tag
-end
-
-function Utils.PrepGoalString(modGuid, goalString)
-  return goalString .. "_" .. Ext.Mod.GetMod(modGuid).Info.Directory
 end
