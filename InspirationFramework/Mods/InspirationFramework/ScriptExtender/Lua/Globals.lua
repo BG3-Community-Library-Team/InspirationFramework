@@ -32,15 +32,4 @@ Globals.BackgroundTags = {
   Urchin = "URCHIN_2faee476-d77b-42a7-a4c6-2b9ac934673c"
 }
 
-Globals.VanillaBackgrounds = {
-
-}
-
-Globals.OperationTypes = {
-  Get = "Get",
-  Retrieve = "Get",
-  Add = "Add",
-  Insert = "Add",
-  Delete = "Delete",
-  Remove = "Delete"
-}
+Globals.ImportedBackgroundGoals = {}
