@@ -1,0 +1,16 @@
+{
+  "FileVersion": 1,
+  "Backgrounds": [
+    {
+      "Name": "AGTT_BS_Apprentice",
+      "Id": "ecb6ee29-5805-474b-9eb7-1d5ee7b89eba",
+      "Goals": [
+        {
+          "Name": "Act1_AGTT_BS_Apprentice_DivinityUndone",
+          "Id": "261cf8cb-a978-4560-b8f4-9db43a734509",
+          "Global": "Optional field. Accepts Global or GlobalAvatar. Will default to Global if not supplied." 
+        }
+      ]
+    }
+  ]
+}
