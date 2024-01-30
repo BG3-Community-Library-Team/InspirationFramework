@@ -2,6 +2,7 @@
 ---@param array table DB Table
 ---@return boolean
 function Utils.TruthDB(array)
+  CLUtils.Info("Entering Utils.TruthDB", Globals.InfoOverride)
   return not not next(array)
 end
 
@@ -10,6 +11,7 @@ end
 --- @param goalString string Goal Name
 ---@return string
 function Utils.PrepGoalString(modGuid, goalString)
+  CLUtils.Info("Entering Utils.PrepGoalString", Globals.InfoOverride)
   return goalString .. "_" .. Ext.Mod.GetMod(modGuid).Info.Directory
 end
 
@@ -19,6 +21,7 @@ end
 --- @param full boolean Boolean to determine if tag should be prefixed with Tag Name field.
 ---@return string
 function Utils.GetBackgroundTag(id, idType, full)
+  CLUtils.Info("Entering Utils.GetBackgroundTag", Globals.InfoOverride)
   idType = idType or "Character"
   local tag
   if idType == "Background" then

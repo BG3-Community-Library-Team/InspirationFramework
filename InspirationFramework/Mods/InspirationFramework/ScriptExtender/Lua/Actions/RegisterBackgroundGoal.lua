@@ -3,7 +3,8 @@
 --- @param goalId string UUID of Background Goal
 --- @param goalString string String name to track goal. Example `Act1_TestGoal`. This should be prefixed with your mod prefix to avoid collisions.
 --- @param global string Value is either `Global` or `GlobalAvatar`. Defaults to `Global`
-function Utils.RegisterBackgroundGoal(backgroundId, goalId, goalString, global)
+function Actions.RegisterBackgroundGoal(backgroundId, goalId, goalString, global)
+  CLUtils.Info("Entering Actions.RegisterBackgroundGoal", Globals.InfoOverride)
   global = global or "Global"
   local backgroundTagId = Utils.GetBackgroundTag(backgroundId, "Background", true)
   if not Utils.TruthDB(Utils.HandleBackgroundsGoal("Get", _, goalString, _, _)) then

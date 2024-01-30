@@ -4,6 +4,7 @@
 --- @param backgroundTagId string ID of background tag.
 ---@return table|nil
 function Utils.HandleBackgroundsPlayers(action, characterId, backgroundTagId)
+  CLUtils.Info("Entering Utils.HandleBackgroundsPlayers", Globals.InfoOverride)
   action = action or "Get"
   if action == "Get" or action == "Retrieve" then
     return Osi.DB_GLO_Backgrounds_Players:Get(characterId, backgroundTagId)
@@ -26,6 +27,7 @@ end
 --- @param global string Global or GlobalAvatar
 ---@return table|nil
 function Utils.HandleBackgroundsGoal(action, backgroundTagId, goalString, goalId, global)
+  CLUtils.Info("Entering Utils.HandleBackgroundsGoal", Globals.InfoOverride)
   action = action or "Get"
   if action == "Get" or action == "Retrieve" then
     return Osi.DB_GLO_Backgrounds_Goal:Get(backgroundTagId, goalString, goalId, global)
@@ -42,6 +44,7 @@ end
 --- @param backgroundTagId string ID of background tag.
 ---@return table|nil
 function Utils.HandleBackgroundsTags(action, backgroundTagId)
+  CLUtils.Info("Entering Utils.HandleBackgroundsTags", Globals.InfoOverride)
   action = action or "Get"
   if action == "Get" or action == "Retrieve" then
     return Osi.DB_GLO_Backgrounds_Tags:Get(backgroundTagId)
@@ -59,6 +62,7 @@ end
 --- @param goalString string string ID of goal (not UUID).
 ---@return table|nil
 function Utils.HandleBackgroundsCompleted(action, characterId, goalString)
+  CLUtils.Info("Entering Utils.HandleBackgroundsCompleted", Globals.InfoOverride)
   action = action or "Get"
   if action == "Get" or action == "Retrieve" then
     return Osi.DB_GLO_Backgrounds_Completed:Get(characterId, goalString)
@@ -75,6 +79,7 @@ end
 --- @param goalString string string ID of goal (not UUID).
 ---@return table|nil
 function Utils.HandleBackgroundsBlocked(action, goalString)
+  CLUtils.Info("Entering Utils.HandleBackgroundsBlocked", Globals.InfoOverride)
   action = action or "Get"
   if action == "Get" or action == "Retrieve" then
     return Osi.DB_GLO_Backgrounds_Blocked:Get(goalString)
@@ -92,6 +97,7 @@ end
 --- @param goalStringB string string ID of another goal (not UUID).
 ---@return table|nil
 function Utils.HandleBackgroundsChainAfterGoal(action, goalStringA, goalStringB)
+  CLUtils.Info("Entering Utils.HandleBackgroundsChainAfterGoal", Globals.InfoOverride)
   action = action or "Get"
   if action == "Get" or action == "Retrieve" then
     return Osi.DB_GLO_Backgrounds_ChainAfterGoal:Get(goalStringA, goalStringB)
