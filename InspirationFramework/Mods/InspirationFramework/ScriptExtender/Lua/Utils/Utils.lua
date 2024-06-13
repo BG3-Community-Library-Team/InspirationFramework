@@ -29,9 +29,13 @@ function Utils.GetBackgroundTag(id, idType, full)
     tag = background.Tags[1]
   else
     id = id or Osi.GetHostCharacter()
-    tag = Ext.Entity.Get(id).BackgroundTag.Tags[1]
+    local entity = Ext.Entity.Get(id)
+
+    if entity.BackgroundTag then
+      tag = Ext.Entity.Get(id).BackgroundTag.Tags[1]
+    end
   end
-  if full then
+  if full and tag then
     tag = Ext.StaticData.Get(tag, "Tag").Name .. "_" .. tag
   end
   return tag

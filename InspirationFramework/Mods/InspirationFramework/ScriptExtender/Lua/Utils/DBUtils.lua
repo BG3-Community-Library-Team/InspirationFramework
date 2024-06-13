@@ -5,16 +5,18 @@
 ---@return table|nil
 function Utils.HandleBackgroundsPlayers(action, characterId, backgroundTagId)
   CLUtils.Info("Entering Utils.HandleBackgroundsPlayers", Globals.InfoOverride)
-  action = action or "Get"
-  if action == "Get" or action == "Retrieve" then
-    return Osi.DB_GLO_Backgrounds_Players:Get(characterId, backgroundTagId)
-  elseif action == "Delete" or action == "Remove" then
-    return Osi.DB_GLO_Backgrounds_Players:Delete(characterId, backgroundTagId)
-  elseif action == "Add" or action == "Insert" then
-    return Osi.DB_GLO_Backgrounds_Players(characterId, backgroundTagId)
-  else
-    -- Invalid Action
-    CLUtils.Error("")
+  if characterId and backgroundTagId then
+    action = action or "Get"
+    if action == "Get" or action == "Retrieve" then
+      return Osi.DB_GLO_Backgrounds_Players:Get(characterId, backgroundTagId)
+    elseif action == "Delete" or action == "Remove" then
+      return Osi.DB_GLO_Backgrounds_Players:Delete(characterId, backgroundTagId)
+    elseif action == "Add" or action == "Insert" then
+      return Osi.DB_GLO_Backgrounds_Players(characterId, backgroundTagId)
+    else
+      -- Invalid Action
+      CLUtils.Error(Strings.ERR_INVALID_DB_ACTION)
+    end
   end
   return nil
 end
